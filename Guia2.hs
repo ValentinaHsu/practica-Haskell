@@ -46,4 +46,4 @@ digitoUnidades n = mod n 10
 --Ej 4 b) {-todoMenor: dadas dos tuplas R × R, decide si es cierto que cada coordenada de la primera tupla es menor a la coordenada correspondiente de la segunda tupla.-} 
 todoMenor :: (Float, Float) -> (Float, Float) -> Bool 
 |{-todoMenor x y |(fst x) > (fst y) && (snd x) > (snd y) = True | otherwise = False-} 
-todoMenor (a,b) (c.d) =
+--todoMenor (a,b) (c.d) =
