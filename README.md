@@ -79,3 +79,36 @@ esCapicua :: Integer ->Bool
 esCapicua n | n < 10 = True
             | esCapicua(mod n 10 == div n (10^(cantDigitos(n)))) 
             | otherwise = False
+--Ej14
+sumaPotencias :: Int ->Int ->Int ->Int
+sumaPotencias q n m | m == 0 = 0
+                    | otherwise = sumaPotencias q (n-1) m + potAuxiliar q n m               
+
+potAuxiliar :: Int -> Int -> Int -> Int
+potAuxiliar q n m  | n == 0 = 0
+                   | otherwise = q^(n+m) + potAuxiliar q n (m-1)
+
+
+menorDivisor :: Int -> Int
+menorDivisor n = menorDesde 2 n 
+
+menorDesde:: Int -> Int-> Int
+menorDesde i j | mod j i == 0 = 0
+               | otherwise = menorDesde(i+1) j 
+
+esSumaInicialDePrimos :: Int ->Bool
+esSumaInicialDePrimos n = sumaPrimosDesde 0 n 
+
+sumaPrimosDesde :: Int -> Int -> Bool
+sumaPrimos i n | sumaPrimosHasta n > n = False
+               | sumaPrimosHasta n == n = True
+               | otherwise = sumaPrimosDesde (i+1) n
+
+sumaPrimosHasta :: Int ->  Int 
+sumaPrimosHasta hasta | esPrimo hasta = hasta + sumaPrimosHasta (hasta -1)
+                      | 
+
+esPrimo :: Int -> Bool
+esPrimo p | menorDivisor p == p 
+
+-- 8  1235
