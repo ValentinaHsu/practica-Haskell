@@ -47,3 +47,51 @@ digitoUnidades n = mod n 10
 todoMenor :: (Float, Float) -> (Float, Float) -> Bool 
 |{-todoMenor x y |(fst x) > (fst y) && (snd x) > (snd y) = True | otherwise = False-} 
 --todoMenor (a,b) (c.d) =
+-Ej 2 parteEntera:: Float -> Integer parteEntera x | x < 1 = 0 | otherwise = parteEntera(x - 1) + 1
+
+--Ej 3 {-
+esDivisible :: Integer ->Integer ->Bool
+esDivisible x y | x == 0 = True 
+                | x > 0 = EsDivisible(x - y) 
+                | otherwise = False -}
+
+--Ej 7 
+cantDigitos :: Int -> Int 
+cantDigitos n | n < 10 = n 
+              | otherwise = cantDigitos(div n 10) + 1
+
+iesimoDigito :: Int ->Int ->Int 
+iesimoDigito n i = mod (div n (10^(cantDigitos(n)-i))) 10 
+-- | cantDigitos n == i = mod n 10 -- | otherwise = iesimoDigito (div n 10) i
+
+--Ej 9
+esCapicua :: Integer ->Bool 
+esCapicua n | n < 10 = True 
+            | esCapicua(mod n 10 == div n (10^(cantDigitos(n)))) 
+            | otherwise = False --Ej14 sumaPotencias :: Int ->Int ->Int ->Int sumaPotencias q n m | m == 0 = 0 | otherwise = sumaPotencias q (n-1) m + potAuxiliar q n m
+
+potAuxiliar :: Int -> Int -> Int -> Int 
+potAuxiliar q n m | n == 0 = 0 
+                  | otherwise = q^(n+m) + potAuxiliar q n (m-1)
+
+menorDivisor :: Int -> Int 
+menorDivisor n = menorDesde 2 n
+
+menorDesde:: Int -> Int-> Int 
+menorDesde i j | mod j i == 0 = 0 
+               | otherwise = menorDesde(i+1) j
+
+esSumaInicialDePrimos :: Int ->Bool 
+esSumaInicialDePrimos n = sumaPrimosDesde 0 n
+
+sumaPrimosDesde :: Int -> Int -> Bool 
+sumaPrimos i n | sumaPrimosHasta n > n = False
+               | sumaPrimosHasta n == n = True 
+               | otherwise = sumaPrimosDesde (i+1) n
+
+-- sumaPrimosHasta :: Int -> Int 
+-- sumaPrimosHasta hasta | esPrimo hasta = hasta + sumaPrimosHasta (hasta -1) |
+
+-- esPrimo :: Int -> Bool esPrimo p | menorDivisor p == p
+
+-- -- 8 1235
