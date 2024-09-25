@@ -6,8 +6,8 @@ lista de precios de productos representada como una secuencia de tuplas de dos e
 del producto y el segundo es el precio.-}
 
 productos :: [String] ->[(String, Int)]
-productos [] = [(" ",0)]
-productos (x:xs) = (x, contar x (xs)) : productos (eliminar x xs)
+productos [] = []
+productos (x:xs) = (x, contar x (x:xs)) : productos (eliminar x xs)
 
 contar:: String -> [String] -> Int
 contar _[] = 0
@@ -18,3 +18,34 @@ eliminar:: String -> [String] -> [String]
 eliminar _[] = []
 eliminar producto (x:xs) | producto == x = eliminar producto xs
                          | otherwise = x: eliminar producto xs
+
+
+stockDeProducto :: [(String, Int)] -> String -> String
+stockDeProducto []_ = "0"
+stockDeProducto ((nombre,cantidad):xs) producto
+        | nombre == producto = "El producto '" ++ nombre ++ "' tiene '" ++ show cantidad ++ "' unidades en stock."
+        | otherwise = stockDeProducto xs producto
+
+
+{- [("manzana",3),("papitas",2),("mayonesa",1),("papel",3)] [("manzana",5.4),("papitas",6.50),("mayonesa", 10.0),("papel",5.0)]-}
+dineroEnStock :: [(String, Int)] ->[(String, Float)] ->Float  
+dineroEnStock []_ = 0
+dineroEnStock ((nombre,cantidad):xs) precios = cantidadProducto * precioProducto + dineroEnStock xs precios
+        where 
+                precioProducto = buscarPrecio nombre precios
+                cantidadProducto = fromIntegral cantidad
+
+buscarPrecio :: String-> [(String, Float)] ->Float
+buscarPrecio _[] = 0
+buscarPrecio producto((nombre,precio):xs)
+                |producto == nombre = precio 
+                |otherwise = buscarPrecio producto xs 
+
+
+aplicarOferta :: [(String, Int)] ->[(String, Float)] ->[(String,Float)]
+aplicarOferta []_ = []
+aplicarOferta ((nombre,cantidad)) precio 
+                |
+
+
+

@@ -53,7 +53,7 @@ todoMenor :: (Float, Float) -> (Float, Float) -> Bool
 esDivisible :: Integer ->Integer ->Bool
 esDivisible x y | x == 0 = True 
                 | x > 0 = EsDivisible(x - y) 
-                | otherwise = False -}
+                | otherwise = False
 
 --Ej 7 
 cantDigitos :: Int -> Int 
