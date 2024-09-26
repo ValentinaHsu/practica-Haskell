@@ -1,24 +1,6 @@
-***Practica de Haskell - UBA 2024***
+***Practica de Haskell - UBA 2024*** 
 
--- [("hola","chau"),("como","estas"),("pedro","jj")]
-relacionesValidas:: [(String, String)] -> Bool
-relacionesValidas [(a,b)] = True
-relacionesValidas ((a,b):xs)
-        |relacionesSinRepetir a b xs == True = relacionesValidas xs
-        |relacionesSinRepetir a b xs  == False = False
-
--- relacionesSinRepetir a b xs && relacionesValidas xs
-
-relacionesSinRepetir :: String -> String -> [(String, String)] -> Bool
-relacionesSinRepetir a b((c,d):xs)
-        |componentesDiferentes a b c d == True = True 
-        |componentesDiferentes a b c d == False = False 
-        |otherwise = relacionesSinRepetir a b xs 
-
-componentesDiferentes :: String -> String -> String -> String -> Bool
-componentesDiferentes a b c d
-        |a == b || c == d || (a == d && b == c) || (a == c && b == d)= False
-        |otherwise = True
+Simulacro 25/9
  Ejercicio 1
 Para empezar a diseñar la novedosa y rupturista red social Y el famoso Elio Mark nos ha pedido que desarrollemos algunas funciones básicas, que tendrán como objetido representar algunas relaciones e interacciones entre los usuarios. Para esto nos envió las siguientes especificaciones en lenguaje semiformal y nos pidió que hagamos el desarrollo enteramente en Haskell, utilizando los tipos requeridos y solamente las funciones que se ven en Introducción a la Programación de Exactas-UBA.
 
