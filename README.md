@@ -1,4 +1,4 @@
-#***Practica de Haskell - UBA 2024*** 
+# ***Practica de Haskell - UBA 2024*** 
 
 ### Simulacro 25/9
 Ejercicio 1
