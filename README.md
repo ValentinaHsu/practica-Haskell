@@ -1,7 +1,7 @@
-***Practica de Haskell - UBA 2024*** 
+#***Practica de Haskell - UBA 2024*** 
 
-Simulacro 25/9
- Ejercicio 1
+### Simulacro 25/9
+Ejercicio 1
 Para empezar a diseñar la novedosa y rupturista red social Y el famoso Elio Mark nos ha pedido que desarrollemos algunas funciones básicas, que tendrán como objetido representar algunas relaciones e interacciones entre los usuarios. Para esto nos envió las siguientes especificaciones en lenguaje semiformal y nos pidió que hagamos el desarrollo enteramente en Haskell, utilizando los tipos requeridos y solamente las funciones que se ven en Introducción a la Programación de Exactas-UBA.
 
 problema relacionesValidas (relaciones: seq⟨String x String⟩) : Bool {
