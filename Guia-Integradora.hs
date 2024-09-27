@@ -35,7 +35,7 @@ dineroEnStock ((nombre,cantidad):xs) precios = cantidadProducto * precioProducto
                 precioProducto = buscarPrecio nombre precios
                 cantidadProducto = fromIntegral cantidad
 
-buscarPrecio :: String-> [(String, Float)] ->Float
+buscarPrecio :: String-> [(String, Float)] -> Float
 buscarPrecio _[] = 0
 buscarPrecio producto((nombre,precio):xs)
                 |producto == nombre = precio 
@@ -44,8 +44,15 @@ buscarPrecio producto((nombre,precio):xs)
 
 aplicarOferta :: [(String, Int)] ->[(String, Float)] ->[(String,Float)]
 aplicarOferta []_ = []
-aplicarOferta ((nombre,cantidad)) precio 
-                |
+aplicarOferta ((nombre,stock):xs) precio 
+        | conOferta stock == True = (nombre, descuento nombre precio): aplicarOferta xs precio
+        | otherwise = (nombre, buscarPrecio nombre precio) : aplicarOferta xs precio
 
+descuento :: String -> [(String, Float)] -> Float
+descuento _[] = 0
+descuento producto ((nombre,precio):xs)
+        | producto == nombre = precio * 0.80
+        | otherwise = descuento producto xs
 
-
+conOferta :: Int -> Bool
+conOferta stock = stock > 10 
